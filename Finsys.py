@@ -97,6 +97,10 @@ cash_fl =PIL.Image.open("images/bank-building-on-the-background-of-the-city-whit
 resized_flow= cash_fl.resize((620,400))
 cash_flow=ImageTk.PhotoImage(resized_flow)
 
+cash_prd =PIL.Image.open("images\prodcuct.webp")
+resized_prd= cash_prd.resize((620,400))
+des_prd=ImageTk.PhotoImage(resized_prd)
+
 logo =PIL.Image.open("images\logo-icon.png")
 resized_image= logo.resize((50,50))
 mai_logo= ImageTk.PhotoImage(resized_image)
@@ -14445,7 +14449,7 @@ def main_sign_in():
                         x1 = dwidth/63
                         x2 = dwidth/1.021
                         y1 = dheight/3.5
-                        y2 = dheight/.42
+                        y2 = dheight/.70
 
                         dcanvas.coords("bg_polygen_flow2",x1 + r1,y1,
                         x1 + r1,y1,
@@ -14473,51 +14477,242 @@ def main_sign_in():
                         )   
                         
                         dcanvas.coords("leb_hdd",dwidth/2,dheight/7)
-                        dcanvas.coords("hd_fl_sub",dwidth/2,dheight/5.2)   
-                        dcanvas.coords("flow_hr",dwidth/40,dheight/4.5,dwidth/1.03,dheight/4.5)
+                        dcanvas.coords("flow_hr",dwidth/40,dheight/5.4,dwidth/1.03,dheight/5.4)
+                        dcanvas.coords("crt_prod",dwidth/1.32,dheight/3.2)
+                        dcanvas.coords("cmb_action",dwidth/1.15,dheight/3.2)
+                        dcanvas.coords("tree_prd",dwidth/41,dheight/2.7)
+                        
+                    #create  product
+                    def create_prods():
+                        scrollPprd.grid_forget()
+       
+                        def red_prd_cret(event):
+                            dwidth = event.width
+                            dheight = event.height
+                            dcanvas = event.widget
+                            
+                            
+                            
+                            r1 = 25
+                            x1 = dwidth/63
+                            x2 = dwidth/1.021
+                            y1 = dheight/13
+                            y2 = dheight/4
 
-                        dcanvas.coords("hf_lb_2",dwidth/2,dheight/3) 
-                        dcanvas.coords("flow_hr2",dwidth/40,dheight/2.5,dwidth/1.03,dheight/2.5)
-                        dcanvas.coords("img_flow",dwidth/40 ,dheight/2.3) 
-                        dcanvas.coords("cmb_bx_fl",dwidth/2 ,dheight/2) 
-                        dcanvas.coords("hd_fl_hde",dwidth/1.9 ,dheight/2.1) 
-                        dcanvas.coords("hd_fl_hds",dwidth/1.35 ,dheight/1.5) 
-                        dcanvas.coords("hd_fl_hrs",dwidth/2 ,dheight/1.4,dwidth/1.03 ,dheight/1.4) 
+                            dcanvas.coords("bg_prd_crt",x1 + r1,y1,
+                            x1 + r1,y1,
+                            x2 - r1,y1,
+                            x2 - r1,y1,     
+                            x2,y1,     
+                            #--------------------
+                            x2,y1 + r1,     
+                            x2,y1 + r1,     
+                            x2,y2 - r1,     
+                            x2,y2 - r1,     
+                            x2,y2,
+                            #--------------------
+                            x2 - r1,y2,     
+                            x2 - r1,y2,     
+                            x1 + r1,y2,
+                            x1 + r1,y2,
+                            x1,y2,
+                            #--------------------
+                            x1,y2 - r1,
+                            x1,y2 - r1,
+                            x1,y1 + r1,
+                            x1,y1 + r1,
+                            x1,y1,
+                            )   
 
-                        dcanvas.coords("nm_nm21",dwidth/1.75 ,dheight/1.25) 
-                        dcanvas.coords("hd_lb_hds",dwidth/1.64  ,dheight/1.3) 
+                            r1 = 25
+                            x1 = dwidth/63
+                            x2 = dwidth/1.021
+                            y1 = dheight/3.5
+                            y2 = dheight/.33
+
+                            dcanvas.coords("bg_prd_crt_2",x1 + r1,y1,
+                            x1 + r1,y1,
+                            x2 - r1,y1,
+                            x2 - r1,y1,     
+                            x2,y1,     
+                            #--------------------
+                            x2,y1 + r1,     
+                            x2,y1 + r1,     
+                            x2,y2 - r1,     
+                            x2,y2 - r1,     
+                            x2,y2,
+                            #--------------------
+                            x2 - r1,y2,     
+                            x2 - r1,y2,     
+                            x1 + r1,y2,
+                            x1 + r1,y2,
+                            x1,y2,
+                            #--------------------
+                            x1,y2 - r1,
+                            x1,y2 - r1,
+                            x1,y1 + r1,
+                            x1,y1 + r1,
+                            x1,y1,
+                            )   
+                            
+                            dcanvas.coords("ped_crt_hd",dwidth/2,dheight/7)
+                            dcanvas.coords("crt_prd_hr",dwidth/40,dheight/5.4,dwidth/1.03,dheight/5.4)
+                            dcanvas.coords("img_flow",dwidth/40 ,dheight/2.3) 
+                            dcanvas.coords("flow_hr2",dwidth/40,dheight/2.5,dwidth/1.03,dheight/2.5)
+                            dcanvas.coords("hf_lb_2",dwidth/2,dheight/3) 
+
+                            #entry Box
+                            dcanvas.coords("prd_nm_lb",dwidth/1.93 ,dheight/2.2) 
+                            dcanvas.coords("prd_nm",dwidth/2 ,dheight/2.1) 
+
+                            dcanvas.coords("prd_sku_lb",dwidth/1.503 ,dheight/2.2) 
+                            dcanvas.coords("prd_sku",dwidth/1.523 ,dheight/2.1)
+
+                            dcanvas.coords("prd_hsn_lb",dwidth/1.215 ,dheight/2.2) 
+                            dcanvas.coords("prd_hsn",dwidth/1.23 ,dheight/2.1)
+
+
+                            dcanvas.coords("prd_qunt_lb",dwidth/1.9 ,dheight/1.55) 
+                            dcanvas.coords("prd_qunt",dwidth/2 ,dheight/1.5) 
+
+                            dcanvas.coords("prd_mfd_lb",dwidth/1.45 ,dheight/1.55) 
+                            dcanvas.coords("prd_mfd",dwidth/1.523 ,dheight/1.5)
+
+                            dcanvas.coords("prd_exd_lb",dwidth/1.19 ,dheight/1.55) 
+                            dcanvas.coords("prd_exd",dwidth/1.23 ,dheight/1.5)
+
+                            dcanvas.coords("butn_crt",dwidth/1.47 ,dheight/1.25)
+                            dcanvas.coords("mfd_hd",dwidth/2 ,dheight/.87)
+
+                            dcanvas.coords("mfd_hr",dwidth/40,dheight/.84,dwidth/1.03,dheight/.84)
+                            dcanvas.coords("frame_can",dwidth/2.007 ,dheight/.565)
+                            
+                        frm_prd_cret = Canvas(mit_ma_frm,height=700,bg='#2f516f',scrollregion=(0,0,700,2000))
+                        prd_cret = Scrollbar(mit_ma_frm,orient=VERTICAL)
+                        prd_cret.grid(row=0,column=2,sticky='ns')
+                        prd_cret.config(command=frm_prd_cret.yview)
+                        frm_prd_cret.bind("<Configure>", red_prd_cret)
+                        frm_prd_cret.config(yscrollcommand=prd_cret.set)
+                        frm_prd_cret.grid(row=0,column=0,sticky='nsew')
+                        
+                        #----------------------------------------------------------------------------------heder 1
+                        rth2 = frm_prd_cret.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, fill="#213b52",tags=("bg_prd_crt"),smooth=True,)
+
+                        lv_name=Label(frm_prd_cret, text="Create Product",bg="#213b52", fg="White", anchor="center",font=('Calibri 24 bold'))
+                        win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=lv_name,tag=("ped_crt_hd"))
+                        frm_prd_cret.create_line(0, 0, 0, 0,fill="gray", tag=("crt_prd_hr") )
+                        
+                        rth2 = frm_prd_cret.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, fill="#213b52",tags=("bg_prd_crt_2"),smooth=True,)
+
+                        frm_prd_cret.create_line(0, 0, 0, 0,fill="gray", tag=("flow_hr2") )
+                        lv_name=Label(frm_prd_cret, text="Product Information",bg="#213b52", fg="White", anchor="center",font=('Calibri 18 bold'))
+                        win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=lv_name,tag=("hf_lb_2"))
+
+                        img = Label(frm_prd_cret, image = des_prd,bg="#213b52",  justify=RIGHT)
+                        win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=img, tag=("img_flow"))
+
+                        prd_nm_lb=Label(frm_prd_cret, text="Name",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                        win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=prd_nm_lb,tag=("prd_nm_lb"))
+                        prd_nm = Entry(frm_prd_cret, width=18, font=('Calibri 16'))
+                        win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=prd_nm, tag=("prd_nm"))
+
+                        prd_sku_lb=Label(frm_prd_cret, text="Sku",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                        win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=prd_sku_lb,tag=("prd_sku_lb"))
+                        prd_sku = Entry(frm_prd_cret, width=18, font=('Calibri 16'))
+                        win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=prd_sku, tag=("prd_sku"))
+
+                        prd_hsn_lb=Label(frm_prd_cret, text="Hsn",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                        win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=prd_hsn_lb,tag=("prd_hsn_lb"))
+                        prd_hsn = Entry(frm_prd_cret, width=18, font=('Calibri 16'))
+                        win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=prd_hsn, tag=("prd_hsn"))
+
+                        prd_qunt_lb=Label(frm_prd_cret, text="Quantity",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                        win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=prd_qunt_lb,tag=("prd_qunt_lb"))
+                        prd_qunt = Entry(frm_prd_cret, width=18, font=('Calibri 16'))
+                        win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=prd_qunt, tag=("prd_qunt"))
 
                          
-                        
+                        prd_mfd = Entry(frm_prd_cret, width=18, font=('Calibri 16'))
+                        win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=prd_mfd, tag=("prd_mfd"))
 
-                        dcanvas.coords("nm_nm241",dwidth/1.3 ,dheight/1.25)
-                        dcanvas.coords("lb_nm241",dwidth/1.230 ,dheight/1.3)
+                        prd_exd_lb=Label(frm_prd_cret, text="EXP Date",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                        win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=prd_exd_lb,tag=("prd_exd_lb"))
+                        prd_exd = Entry(frm_prd_cret, width=18, font=('Calibri 16'))
+                        win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=prd_exd, tag=("prd_exd"))
+
+                        butn_crt = customtkinter.CTkButton(master=frm_prd_cret,command=main_sign_in,text="Create",bg="#213b52")
+                        win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=butn_crt, tag=("butn_crt"))
+                        
+                        #master  product details
+
+                        lv_name=Label(frm_prd_cret, text="Manufacture of Meterials",bg="#213b52", fg="White", anchor="center",font=('Calibri 24 bold'))
+                        win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=lv_name,tag=("mfd_hd"))
+                        frm_prd_cret.create_line(0, 0, 0, 0,fill="gray", tag=("mfd_hr") )
+
+                        frm_mast = Canvas(frm_prd_cret,height=700, width=1288   ,bg='red',scrollregion=(0,300,700,2000))
+                        mit_ma_scrl = Scrollbar(mit_ma_frm,orient=VERTICAL)
+                        # frm_mast.bind("<Configure>", res_wid_mit_ma)
+                        frm_mast.config(yscrollcommand=mit_ma_scrl.set)
+                        win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=frm_mast,tag=("frame_can"))
 
                         
+                        mit_ma_scrl.grid(row=0,column=1,sticky='ns')
+                        mit_ma_scrl.config(command=frm_mast.xview)
+                 
 
-                        dcanvas.coords("cash_hd",dwidth/2 ,dheight/.85)
-                        dcanvas.coords("tree_flow",dwidth/33 ,dheight/.80)
-                        dcanvas.coords("btn_flow",dwidth/1.45 ,dheight/1)
-                        dcanvas.coords("scrollbary",dwidth/1.04 ,dheight/.80)
-                        
 
                     mit_ma_frm.grid_rowconfigure(0,weight=1)
                     mit_ma_frm.grid_columnconfigure(0,weight=1)
 
-                    frm_mit_ma = Canvas(mit_ma_frm,height=700,bg='#2f516f',scrollregion=(0,0,700,1500))
+                    frm_mit_ma = Canvas(mit_ma_frm,height=700,bg='#2f516f',scrollregion=(0,0,700,900))
                     mit_ma_scrl = Scrollbar(mit_ma_frm,orient=VERTICAL)
                     mit_ma_scrl.grid(row=0,column=2,sticky='ns')
                     mit_ma_scrl.config(command=frm_mit_ma.yview)
                     frm_mit_ma.bind("<Configure>", res_wid_mit_ma)
                     frm_mit_ma.config(yscrollcommand=mit_ma_scrl.set)
                     frm_mit_ma.grid(row=0,column=0,sticky='nsew')
-
+                    scrollPprd = Scrollbar(mit_ma_frm, orient=VERTICAL)
                     #----------------------------------------------------------------------------------heder 1
                     rth2 = frm_mit_ma.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, fill="#213b52",tags=("bg_polygen_flow"),smooth=True,)
 
                     lv_name=Label(frm_mit_ma, text="Meterial Master",bg="#213b52", fg="White", anchor="center",font=('Calibri 24 bold'))
                     win_inv1 = frm_mit_ma.create_window(0, 0, anchor="center", window=lv_name,tag=("leb_hdd"))
                     frm_mit_ma.create_line(0, 0, 0, 0,fill="gray", tag=("flow_hr") )
+
+                    butn_prd = customtkinter.CTkButton(master=frm_mit_ma,command=create_prods,text="Create",bg="#213b52")
+                    win_inv1 = frm_mit_ma.create_window(0, 0, anchor="nw", window=butn_prd, tag=("crt_prod"))
+                    
+                    act_var= StringVar()
+                    cmb_action = ttk.Combobox(frm_mit_ma,textvariable=act_var,width=10,font=('Calibri 16'))
+                    cmb_action['values'] = ('Edit','Delete')
+                    win_inv1 = frm_mit_ma.create_window(0, 0, anchor="nw", window=cmb_action, tag=("cmb_action"))
+
+                    fgth = ttk.Style()
+                    fgth.theme_use("default")
+                    fgth.configure("Treeview", background="#2f516f", foreground="white",fieldbackground="#2f516f",rowheight=25,font=(None,11),)
+                    fgth.configure("Treeview.Heading",background="#1b3857",activeforeground="black",foreground="white",font=(None,11), justify="center")  
+                 
+                    prd_tree = ttk.Treeview(frm_mit_ma, columns = (1,2,3,4,5,6,7),show = "headings", heigh=23, yscrollcommand=scrollPprd.set)
+                    # prd_tree.pack(side = 'top')
+                    prd_tree.heading(1, text="ID")
+                    prd_tree.heading(2, text="NAME")
+                    prd_tree.heading(3, text="SKU")
+                    prd_tree.heading(4, text="QUANTITY")
+                    prd_tree.heading(5, text="EXP. DATE")
+                    prd_tree.heading(6, text="MFD.DATE")
+                    prd_tree.heading(7, text="COST/ITEM")
+                    
+                    prd_tree.column(1, width = 150)
+                    prd_tree.column(2, width = 305)
+                    prd_tree.column(3, width =200)
+                    prd_tree.column(4, width = 150)
+                    prd_tree.column(5, width = 150)
+                    prd_tree.column(6, width =150)
+                    prd_tree.column(7, width =150)
+                    scrollPprd.config(command=prd_tree.yview)
+                    scrollPprd.grid(row=0,column=1,sticky='ns')
+                    
+                    window_label_4 = frm_mit_ma.create_window(0, 0, anchor="nw", window=prd_tree,tags=('tree_prd'))
 
                     #----------------------------------------------------------------------------------heder 2
                     rth2 = frm_mit_ma.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, fill="#213b52",tags=("bg_polygen_flow2"),smooth=True,)
@@ -14599,34 +14794,12 @@ def main_sign_in():
                         x1,y1,
                         )   
                         
-                        dcanvas.coords("leb_hdd",dwidth/2,dheight/7)
-                        dcanvas.coords("hd_fl_sub",dwidth/2,dheight/5.2)   
+                        dcanvas.coords("leb_hdd",dwidth/2,dheight/7)  
                         dcanvas.coords("flow_hr",dwidth/40,dheight/4.5,dwidth/1.03,dheight/4.5)
+                        dcanvas.coords("crt_prod",dwidth/1.8,dheight/3.6) 
 
-                        dcanvas.coords("hf_lb_2",dwidth/2,dheight/3) 
-                        dcanvas.coords("flow_hr2",dwidth/40,dheight/2.5,dwidth/1.03,dheight/2.5)
-                        dcanvas.coords("img_flow",dwidth/40 ,dheight/2.3) 
-                        dcanvas.coords("cmb_bx_fl",dwidth/2 ,dheight/2) 
-                        dcanvas.coords("hd_fl_hde",dwidth/1.9 ,dheight/2.1) 
-                        dcanvas.coords("hd_fl_hds",dwidth/1.35 ,dheight/1.5) 
-                        dcanvas.coords("hd_fl_hrs",dwidth/2 ,dheight/1.4,dwidth/1.03 ,dheight/1.4) 
 
-                        dcanvas.coords("nm_nm21",dwidth/1.75 ,dheight/1.25) 
-                        dcanvas.coords("hd_lb_hds",dwidth/1.64  ,dheight/1.3) 
 
-                         
-                        
-
-                        dcanvas.coords("nm_nm241",dwidth/1.3 ,dheight/1.25)
-                        dcanvas.coords("lb_nm241",dwidth/1.230 ,dheight/1.3)
-
-                        
-
-                        dcanvas.coords("cash_hd",dwidth/2 ,dheight/.85)
-                        dcanvas.coords("tree_flow",dwidth/33 ,dheight/.80)
-                        dcanvas.coords("btn_flow",dwidth/1.45 ,dheight/1)
-                        dcanvas.coords("scrollbary",dwidth/1.04 ,dheight/.80)
-                        
 
                     prc_ma_frm.grid_rowconfigure(0,weight=1)
                     prc_ma_frm.grid_columnconfigure(0,weight=1)
@@ -14643,9 +14816,13 @@ def main_sign_in():
                     rth2 = frm_prc_ma.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, fill="#213b52",tags=("bg_polygen_flow"),smooth=True,)
 
                     lv_name=Label(frm_prc_ma, text="Meterial Master",bg="#213b52", fg="White", anchor="center",font=('Calibri 24 bold'))
-                    win_inv1 = frm_prc_ma.create_window(0, 0, anchor="center", window=lv_name,tag=("leb_hdd"))
-                    frm_prc_ma.create_line(0, 0, 0, 0,fill="gray", tag=("flow_hr") )
+                    win_inv1 = frm_prc_ma.create_window(0, 0, anchor="center", window=lv_name,tag=("prd_hdd"))
+                    frm_prc_ma.create_line(0, 0, 0, 0,fill="gray", tag=("prd_hr") )
 
+                    butn_prd = customtkinter.CTkButton(master=frm_prc_ma,command=main_sign_in,text="View",bg="#213b52")
+                    win_inv1 = frm_prc_ma.create_window(0, 0, anchor="nw", window=butn_prd, tag=("crt_prod"))
+
+                     
                     #----------------------------------------------------------------------------------heder 2
                     rth2 = frm_prc_ma.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, fill="#213b52",tags=("bg_polygen_flow2"),smooth=True,)
 
@@ -14753,7 +14930,7 @@ def cmpny_crt2():
     industry_tp= StringVar()
     cmpny_cntry = ttk.Combobox(cmpny_dt_frm2,textvariable=industry_tp,width=29,font=('Calibri 16'))
     
-    cmpny_cntry['values'] = ('Accounting Services','Consultants, doctors, Lawyers and similar','Information Tecnology','Manufacturing','Professional, Scientific and Technical Services','Restaurant/Bar and similar','Retail and Smilar','Other Finanacial Services')
+    cmpny_cntry['values'] = ('Accounting Services','Consultants', 'doctors', 'Lawyers and similar','Information Tecnology','Manufacturing','Professional, Scientific and Technical Services','Restaurant/Bar and similar','Retail and Smilar','Other Finanacial Services')
    
     win_inv1 = lf_cmpy2.create_window(0, 0, anchor="nw", window=cmpny_cntry, tag=("cmpny_cntry"))
 
