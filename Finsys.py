@@ -14555,6 +14555,7 @@ def main_sign_in():
                             x1,y1,
                             )   
                             
+                            dcanvas.coords("btn_prd_crtt",dwidth/20,dheight/3)
                             dcanvas.coords("ped_crt_hd",dwidth/2,dheight/7)
                             dcanvas.coords("crt_prd_hr",dwidth/40,dheight/5.4,dwidth/1.03,dheight/5.4)
                             dcanvas.coords("img_flow",dwidth/40 ,dheight/2.3) 
@@ -14599,9 +14600,9 @@ def main_sign_in():
                             dcanvas.coords("vr2",dwidth/2.8,dheight/.36,dwidth/2.8,dheight/.27)#vr2
                             dcanvas.coords("var3",dwidth/1.5,dheight/.36,dwidth/1.5,dheight/.27)#vr3
                             dcanvas.coords("var4",dwidth/1.03,dheight/.36,dwidth/1.03,dheight/.27)#vr4
+
                             dcanvas.coords("wg_r1c1",dwidth/9 ,dheight/.358)
                             dcanvas.coords("wg_r1c2",dwidth/2.2 ,dheight/.358)
-
                             dcanvas.coords("wg_r1c3",dwidth/1.3 ,dheight/.358)
 
                             dcanvas.coords("wg_r2c1",dwidth/22 ,dheight/.348)
@@ -14624,12 +14625,19 @@ def main_sign_in():
                             dcanvas.coords("wg_r6c2",dwidth/2.72 ,dheight/.308)
                             dcanvas.coords("wg_r6c3",dwidth/1.485 ,dheight/.308)
 
+                            dcanvas.coords("lb_sum",dwidth/1.65 ,dheight/.296)      
                             dcanvas.coords("wg_r7c3",dwidth/1.485 ,dheight/.298)
 
+                            dcanvas.coords("lb_cst",dwidth/1.645 ,dheight/.286)
                             dcanvas.coords("wg_r8c3",dwidth/1.485 ,dheight/.288)
 
+                            dcanvas.coords("lb_tt",dwidth/1.79 ,dheight/.276)
                             dcanvas.coords("wg_r9c3",dwidth/1.485 ,dheight/.278)
-                            
+                        
+                        def back_prd_add():
+                                frm_prd_cret.grid_forget()
+                                prd_cret.grid_forget()
+                                scrollPprd.grid(row=0,column=1,sticky='ns')
 
                         frm_prd_cret = Canvas(mit_ma_frm,height=700,bg='#2f516f',scrollregion=(0,0,700,3000))
                         prd_cret = Scrollbar(mit_ma_frm,orient=VERTICAL)
@@ -14639,12 +14647,15 @@ def main_sign_in():
                         frm_prd_cret.config(yscrollcommand=prd_cret.set)
                         frm_prd_cret.grid(row=0,column=0,sticky='nsew')
                         
-                    #----------------------------------------------------------------------------------heder 1
+                        #----------------------------------------------------------------------------------heder 1
                         rth2 = frm_prd_cret.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, fill="#213b52",tags=("bg_prd_crt"),smooth=True,)
 
                         lv_name=Label(frm_prd_cret, text="Create Product",bg="#213b52", fg="White", anchor="center",font=('Calibri 24 bold'))
                         win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=lv_name,tag=("ped_crt_hd"))
                         frm_prd_cret.create_line(0, 0, 0, 0,fill="gray", tag=("crt_prd_hr") )
+
+                        btn_prd_crtt=Button(frm_prd_cret,text="← Back", command=back_prd_add, bd=0, bg="#213b52",fg="white",font=('Calibri 14 bold'))
+                        win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=btn_prd_crtt,tag=("btn_prd_crtt"))
                         
                         rth2 = frm_prd_cret.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, fill="#213b52",tags=("bg_prd_crt_2"),smooth=True,)
 
@@ -14751,19 +14762,19 @@ def main_sign_in():
 
 
                         prd_ls10=Label(frm_mast1, text="Name Of Item",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
-                        win_inv1 = frm_mast1.create_window(180,195, anchor="center", window=prd_ls10)
+                        win_inv1 = frm_mast1.create_window(230,195, anchor="center", window=prd_ls10)
 
-                        prd_ls11=Label(frm_mast1, text="Godown",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
-                        win_inv1 = frm_mast1.create_window(400,195, anchor="center", window=prd_ls11)
+                        prd_ls11=Label(frm_mast1, text="Sku",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                        win_inv1 = frm_mast1.create_window(430,195, anchor="center", window=prd_ls11)
 
                         prd_ls12=Label(frm_mast1, text="Quantity",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
                         win_inv1 = frm_mast1.create_window(600,195, anchor="center", window=prd_ls12)
 
                         prd_ls13=Label(frm_mast1, text="Rate",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
-                        win_inv1 = frm_mast1.create_window(730,195, anchor="center", window=prd_ls13)
+                        win_inv1 = frm_mast1.create_window(735,195, anchor="center", window=prd_ls13)
 
                         prd_ls14=Label(frm_mast1, text="Amount",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
-                        win_inv1 = frm_mast1.create_window(880,195, anchor="center", window=prd_ls14)
+                        win_inv1 = frm_mast1.create_window(900,195, anchor="center", window=prd_ls14)
 
                         # values Section 
                         cmb1= StringVar()
@@ -15058,22 +15069,22 @@ def main_sign_in():
 
                         #3333333333333333333333333333333333333333333333333333333333333333333333second table
                         prd_ls10=Label(frm_mast1, text="Name Of Item",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
-                        win_inv1 = frm_mast1.create_window(1060,195, anchor="center", window=prd_ls10)
+                        win_inv1 = frm_mast1.create_window(1085,195, anchor="center", window=prd_ls10)
 
-                        prd_ls11=Label(frm_mast1, text="Godown",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
-                        win_inv1 = frm_mast1.create_window(1270,195, anchor="center", window=prd_ls11)
+                        prd_ls11=Label(frm_mast1, text="Sku",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                        win_inv1 = frm_mast1.create_window(1265,195, anchor="center", window=prd_ls11)
 
                         prd_ls12=Label(frm_mast1, text="% of Cost\nallocation",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
                         win_inv1 = frm_mast1.create_window(1400,195, anchor="center", window=prd_ls12)
 
                         prd_ls12=Label(frm_mast1, text="Quantity",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
-                        win_inv1 = frm_mast1.create_window(1530,195, anchor="center", window=prd_ls12)
+                        win_inv1 = frm_mast1.create_window(1523,195, anchor="center", window=prd_ls12)
 
                         prd_ls13=Label(frm_mast1, text="Rate",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
-                        win_inv1 = frm_mast1.create_window(1630,195, anchor="center", window=prd_ls13)
+                        win_inv1 = frm_mast1.create_window(1638,195, anchor="center", window=prd_ls13)
 
                         prd_ls14=Label(frm_mast1, text="Amount",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
-                        win_inv1 = frm_mast1.create_window(1780,195, anchor="center", window=prd_ls14)
+                        win_inv1 = frm_mast1.create_window(1790,195, anchor="center", window=prd_ls14)
 
                         # valuesss
                         #----------------------------------------------------------------------row 1
@@ -15399,7 +15410,7 @@ def main_sign_in():
                         prd_r16_2c6 = Entry(frm_mast1, width=13, font=('Calibri 16'))
                         win_inv1 = frm_mast1.create_window(1723,910, anchor="nw", window=prd_r16_2c6,)
                         
-                    #------------------------------------------------------------------------wages
+                        #------------------------------------------------------------------------wages
                         frm_prd_cret.create_line(0, 0, 0, 0,fill="gray",tag=("hr1") )#topLine hr
 
                         frm_prd_cret.create_line(0, 0, 0, 0,fill="gray",tag=("hr2") )#topLine2 hr
@@ -15479,15 +15490,1052 @@ def main_sign_in():
                         win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=wg_r6c3, tag=("wg_r6c3"))
 
                         #sum
+
+                        lb_sum=Label(frm_prd_cret, text="Total Add. Cost:",bg="#213b52", fg="White", anchor="center",font=('Calibri 16 bold'))
+                        win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=lb_sum,tag=("lb_sum"))
+
                         wg_r7c3 = Entry(frm_prd_cret, width=35, font=('Calibri 16'))
                         win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=wg_r7c3, tag=("wg_r7c3"))
+
+                        lb_cst=Label(frm_prd_cret, text="Effective Cost:",bg="#213b52", fg="White", anchor="center",font=('Calibri 16 bold'))
+                        win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=lb_cst,tag=("lb_cst"))
 
                         wg_r8c3 = Entry(frm_prd_cret, width=35, font=('Calibri 16'))
                         win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=wg_r8c3, tag=("wg_r8c3"))
 
+                        lb_tt=Label(frm_prd_cret, text="Effective Rate Of Primary Item:",bg="#213b52", fg="White", anchor="center",font=('Calibri 16 bold'))
+                        win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=lb_tt,tag=("lb_tt"))
+
                         wg_r9c3 = Entry(frm_prd_cret, width=35, font=('Calibri 16'))
                         win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=wg_r9c3, tag=("wg_r9c3"))
 
+                    def edit_prods(event):
+                        scrollPprd.grid_forget()
+                        
+                        if act_var.get()=="Edit":
+                            def red_prd_cret(event):
+                                dwidth = event.width
+                                dheight = event.height
+                                dcanvas = event.widget
+                                
+                                
+                                
+                                r1 = 25
+                                x1 = dwidth/63
+                                x2 = dwidth/1.021
+                                y1 = dheight/13
+                                y2 = dheight/4
+
+                                dcanvas.coords("bg_prd_crt",x1 + r1,y1,
+                                x1 + r1,y1,
+                                x2 - r1,y1,
+                                x2 - r1,y1,     
+                                x2,y1,     
+                                #--------------------
+                                x2,y1 + r1,     
+                                x2,y1 + r1,     
+                                x2,y2 - r1,     
+                                x2,y2 - r1,     
+                                x2,y2,
+                                #--------------------
+                                x2 - r1,y2,     
+                                x2 - r1,y2,     
+                                x1 + r1,y2,
+                                x1 + r1,y2,
+                                x1,y2,
+                                #--------------------
+                                x1,y2 - r1,
+                                x1,y2 - r1,
+                                x1,y1 + r1,
+                                x1,y1 + r1,
+                                x1,y1,
+                                )   
+
+                                r1 = 25
+                                x1 = dwidth/63
+                                x2 = dwidth/1.021
+                                y1 = dheight/3.5
+                                y2 = dheight/.22
+
+                                dcanvas.coords("bg_prd_crt_2",x1 + r1,y1,
+                                x1 + r1,y1,
+                                x2 - r1,y1,
+                                x2 - r1,y1,     
+                                x2,y1,     
+                                #--------------------
+                                x2,y1 + r1,     
+                                x2,y1 + r1,     
+                                x2,y2 - r1,     
+                                x2,y2 - r1,     
+                                x2,y2,
+                                #--------------------
+                                x2 - r1,y2,     
+                                x2 - r1,y2,     
+                                x1 + r1,y2,
+                                x1 + r1,y2,
+                                x1,y2,
+                                #--------------------
+                                x1,y2 - r1,
+                                x1,y2 - r1,
+                                x1,y1 + r1,
+                                x1,y1 + r1,
+                                x1,y1,
+                                )   
+                                dcanvas.coords("btn_prd_edt",dwidth/20,dheight/3)
+                                dcanvas.coords("ped_crt_hd",dwidth/2,dheight/7)
+                                dcanvas.coords("crt_prd_hr",dwidth/40,dheight/5.4,dwidth/1.03,dheight/5.4)
+                                dcanvas.coords("img_flow",dwidth/40 ,dheight/2.3) 
+                                dcanvas.coords("flow_hr2",dwidth/40,dheight/2.5,dwidth/1.03,dheight/2.5)
+                                dcanvas.coords("hf_lb_2",dwidth/2,dheight/3) 
+
+                                #entry Box
+                                dcanvas.coords("prd_nm_lb",dwidth/1.93 ,dheight/2.2) 
+                                dcanvas.coords("prd_nm",dwidth/2 ,dheight/2.1) 
+
+                                dcanvas.coords("prd_sku_lb",dwidth/1.503 ,dheight/2.2) 
+                                dcanvas.coords("prd_sku",dwidth/1.523 ,dheight/2.1)
+
+                                dcanvas.coords("prd_hsn_lb",dwidth/1.215 ,dheight/2.2) 
+                                dcanvas.coords("prd_hsn",dwidth/1.23 ,dheight/2.1)
+
+
+                                dcanvas.coords("prd_qunt_lb",dwidth/1.9 ,dheight/1.55) 
+                                dcanvas.coords("prd_qunt",dwidth/2 ,dheight/1.5) 
+
+                                dcanvas.coords("prd_mfd_lb",dwidth/1.45 ,dheight/1.55) 
+                                dcanvas.coords("prd_mfd",dwidth/1.523 ,dheight/1.5)
+
+                                dcanvas.coords("prd_exd_lb",dwidth/1.19 ,dheight/1.55) 
+                                dcanvas.coords("prd_exd",dwidth/1.23 ,dheight/1.5)
+
+                                dcanvas.coords("butn_crt",dwidth/1.47 ,dheight/1.25)
+                                dcanvas.coords("mfd_hd",dwidth/2 ,dheight/.87)
+
+                                dcanvas.coords("mfd_hr",dwidth/40,dheight/.84,dwidth/1.03,dheight/.84)
+                                dcanvas.coords("frame_can1",dwidth/2.007 ,dheight/.12)
+                                
+                                dcanvas.coords("frame_can",dwidth/2.007 ,dheight/.505)
+
+                                #wages tb
+                                dcanvas.coords("hr1",dwidth/40,dheight/.36,dwidth/1.03,dheight/.36) #hr1
+
+                                dcanvas.coords("hr2",dwidth/40,dheight/.35,dwidth/1.03,dheight/.35)#hr2
+
+                                dcanvas.coords("hr3",dwidth/40,dheight/.27,dwidth/1.03,dheight/.27)#hr2
+                                dcanvas.coords("vr1",dwidth/40,dheight/.36,dwidth/40,dheight/.27)#vr1
+                                dcanvas.coords("vr2",dwidth/2.8,dheight/.36,dwidth/2.8,dheight/.27)#vr2
+                                dcanvas.coords("var3",dwidth/1.5,dheight/.36,dwidth/1.5,dheight/.27)#vr3
+                                dcanvas.coords("var4",dwidth/1.03,dheight/.36,dwidth/1.03,dheight/.27)#vr4
+                                dcanvas.coords("wg_r1c1",dwidth/9 ,dheight/.358)
+                                dcanvas.coords("wg_r1c2",dwidth/2.2 ,dheight/.358)
+
+                                dcanvas.coords("wg_r1c3",dwidth/1.3 ,dheight/.358)
+
+                                dcanvas.coords("wg_r2c1",dwidth/22 ,dheight/.348)
+                                dcanvas.coords("wg_r2c2",dwidth/2.72 ,dheight/.348)
+                                dcanvas.coords("wg_r2c3",dwidth/1.485 ,dheight/.348)
+
+                                dcanvas.coords("wg_r3c1",dwidth/22 ,dheight/.338)
+                                dcanvas.coords("wg_r3c2",dwidth/2.72 ,dheight/.338)
+                                dcanvas.coords("wg_r3c3",dwidth/1.485 ,dheight/.338)
+
+                                dcanvas.coords("wg_r4c1",dwidth/22 ,dheight/.328)
+                                dcanvas.coords("wg_r4c2",dwidth/2.72 ,dheight/.328)
+                                dcanvas.coords("wg_r4c3",dwidth/1.485 ,dheight/.328)
+
+                                dcanvas.coords("wg_r5c1",dwidth/22 ,dheight/.318)
+                                dcanvas.coords("wg_r5c2",dwidth/2.72 ,dheight/.318)
+                                dcanvas.coords("wg_r5c3",dwidth/1.485 ,dheight/.318)
+
+                                dcanvas.coords("wg_r6c1",dwidth/22 ,dheight/.308)
+                                dcanvas.coords("wg_r6c2",dwidth/2.72 ,dheight/.308)
+                                dcanvas.coords("wg_r6c3",dwidth/1.485 ,dheight/.308)
+
+                                dcanvas.coords("lb_sum",dwidth/1.65 ,dheight/.296)      
+                                dcanvas.coords("wg_r7c3",dwidth/1.485 ,dheight/.298)
+
+                                dcanvas.coords("lb_cst",dwidth/1.645 ,dheight/.286)
+                                dcanvas.coords("wg_r8c3",dwidth/1.485 ,dheight/.288)
+
+                                dcanvas.coords("lb_tt",dwidth/1.79 ,dheight/.276)
+                                dcanvas.coords("wg_r9c3",dwidth/1.485 ,dheight/.278)
+                                
+                            def back_prd_edt():
+                                frm_prd_cret.grid_forget()
+                                prd_cret.grid_forget()
+                                scrollPprd.grid(row=0,column=1,sticky='ns')
+                            
+                            frm_prd_cret = Canvas(mit_ma_frm,height=700,bg='#2f516f',scrollregion=(0,0,700,3000))
+                            prd_cret = Scrollbar(mit_ma_frm,orient=VERTICAL)
+                            prd_cret.grid(row=0,column=2,sticky='ns')
+                            prd_cret.config(command=frm_prd_cret.yview)
+                            frm_prd_cret.bind("<Configure>", red_prd_cret)
+                            frm_prd_cret.config(yscrollcommand=prd_cret.set)
+                            frm_prd_cret.grid(row=0,column=0,sticky='nsew')
+                            
+                        #----------------------------------------------------------------------------------heder 1
+                            rth2 = frm_prd_cret.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, fill="#213b52",tags=("bg_prd_crt"),smooth=True,)
+
+                            lv_name=Label(frm_prd_cret, text="Edit Product",bg="#213b52", fg="White", anchor="center",font=('Calibri 24 bold'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=lv_name,tag=("ped_crt_hd"))
+                            frm_prd_cret.create_line(0, 0, 0, 0,fill="gray", tag=("crt_prd_hr") )
+                            
+                            rth2 = frm_prd_cret.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, fill="#213b52",tags=("bg_prd_crt_2"),smooth=True,)
+                            
+                            btn_prd_edt=Button(frm_prd_cret,text="← Back", command=back_prd_edt, bd=0, bg="#213b52",fg="white",font=('Calibri 14 bold'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=btn_prd_edt,tag=("btn_prd_edt"))
+                            
+                            frm_prd_cret.create_line(0, 0, 0, 0,fill="gray", tag=("flow_hr2") )
+                            lv_name=Label(frm_prd_cret, text="Product Information",bg="#213b52", fg="White", anchor="center",font=('Calibri 18 bold'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=lv_name,tag=("hf_lb_2"))
+
+                            img = Label(frm_prd_cret, image = des_prd,bg="#213b52",  justify=RIGHT)
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=img, tag=("img_flow"))
+
+                            prd_nm_lb=Label(frm_prd_cret, text="Name",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=prd_nm_lb,tag=("prd_nm_lb"))
+                            prd_nm = Entry(frm_prd_cret, width=18, font=('Calibri 16'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=prd_nm, tag=("prd_nm"))
+
+                            prd_sku_lb=Label(frm_prd_cret, text="Sku",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=prd_sku_lb,tag=("prd_sku_lb"))
+                            prd_sku = Entry(frm_prd_cret, width=18, font=('Calibri 16'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=prd_sku, tag=("prd_sku"))
+
+                            prd_hsn_lb=Label(frm_prd_cret, text="Hsn",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=prd_hsn_lb,tag=("prd_hsn_lb"))
+                            prd_hsn = Entry(frm_prd_cret, width=18, font=('Calibri 16'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=prd_hsn, tag=("prd_hsn"))
+
+                            prd_qunt_lb=Label(frm_prd_cret, text="Quantity",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=prd_qunt_lb,tag=("prd_qunt_lb"))
+                            prd_qunt = Entry(frm_prd_cret, width=18, font=('Calibri 16'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=prd_qunt, tag=("prd_qunt"))
+
+                            
+                            prd_mfd = Entry(frm_prd_cret, width=18, font=('Calibri 16'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=prd_mfd, tag=("prd_mfd"))
+
+                            prd_exd_lb=Label(frm_prd_cret, text="EXP Date",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=prd_exd_lb,tag=("prd_exd_lb"))
+                            prd_exd = Entry(frm_prd_cret, width=18, font=('Calibri 16'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=prd_exd, tag=("prd_exd"))
+
+                            butn_crt = customtkinter.CTkButton(master=frm_prd_cret,command=main_sign_in,text="Create",bg="#213b52")
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=butn_crt, tag=("butn_crt"))
+                            
+                            #################################################################master  product details
+
+                            lv_name=Label(frm_prd_cret, text="Manufacture of Meterials",bg="#213b52", fg="White", anchor="center",font=('Calibri 24 bold'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=lv_name,tag=("mfd_hd"))
+                            frm_prd_cret.create_line(0, 0, 0, 0,fill="gray", tag=("mfd_hr") )
+
+
+                            frm_mast = Canvas(frm_prd_cret,height=950, width=1270,bd=0,bg='#213b52',)
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=frm_mast,tag=("frame_can"))
+
+                            frm_mast1 = Canvas(frm_mast,height=950 , width=1500,bd=0,bg='#213b52',scrollregion=(0,0,2000,1200))
+                            mit_ma_scrl1 = Scrollbar(mit_ma_frm,orient=HORIZONTAL)
+                            
+                            frm_mast1.config(xscrollcommand=mit_ma_scrl1.set)
+                            win_inv1 = frm_mast.create_window(640,475, anchor="center", window=frm_mast1,tag=("frame_can1"))
+
+                            
+                            mit_ma_scrl1.place(x=0,y=590, width=1340)
+                            mit_ma_scrl1.config(command=frm_mast1.xview)
+                            
+                            prd_ls1=Label(frm_mast1, text="Name of Product : Acer X3",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_mast1.create_window(750, 30, anchor="center", window=prd_ls1)
+
+                            prd_ls2=Label(frm_mast1, text="Godown : G5",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_mast1.create_window(1000, 30, anchor="center", window=prd_ls2)
+
+                            prd_ls3=Label(frm_mast1, text="Quantity : 8",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_mast1.create_window(1250, 30, anchor="center", window=prd_ls3)
+
+                            prd_ls4=Label(frm_mast1, text="% Cost  Allocation : 100%",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_mast1.create_window(500, 90, anchor="center", window=prd_ls4)
+
+                            prd_ls5=Label(frm_mast1, text="Batch Name : G5",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_mast1.create_window(850,90, anchor="center", window=prd_ls5)
+
+                            prd_ls6=Label(frm_mast1, text="MFG Date : 2022-02-08",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_mast1.create_window(1200,90, anchor="center", window=prd_ls6)
+
+                            prd_ls7=Label(frm_mast1, text="Expiry Date : 2022-02-08",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_mast1.create_window(1450,90, anchor="center", window=prd_ls7)
+
+
+                            frm_mast1.create_line(120, 120, 1870, 120,fill="gray" )#topLine hr
+
+                            frm_mast1.create_line(120, 160, 1870, 160,fill="gray" )#topLine2 hr
+
+                            frm_mast1.create_line(120, 230, 1870, 230,fill="gray" )#topLine3 hr
+
+                            frm_mast1.create_line(120, 950, 1870, 950,fill="gray" )#topLine4 hr
+
+                            frm_mast1.create_line(1000, 120, 1000, 950,fill="gray" )#topLine vr
+
+                            frm_mast1.create_line(1870, 120, 1870, 950,fill="gray" )#topLine left vr
+
+                            frm_mast1.create_line(120, 120, 120, 950,fill="gray" )#topLine right vr
+                            # table Inner 
+                            prd_ls6=Label(frm_mast1, text="Components (Consumption)",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_mast1.create_window(550,140, anchor="center", window=prd_ls6)
+
+                            prd_ls8=Label(frm_mast1, text="Co Product/By-Product/Scrap",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_mast1.create_window(1435,140, anchor="center", window=prd_ls8)
+
+
+                            prd_ls10=Label(frm_mast1, text="Name Of Item",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_mast1.create_window(230,195, anchor="center", window=prd_ls10)
+
+                            prd_ls11=Label(frm_mast1, text="Sku",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_mast1.create_window(430,195, anchor="center", window=prd_ls11)
+
+                            prd_ls12=Label(frm_mast1, text="Quantity",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_mast1.create_window(600,195, anchor="center", window=prd_ls12)
+
+                            prd_ls13=Label(frm_mast1, text="Rate",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_mast1.create_window(735,195, anchor="center", window=prd_ls13)
+
+                            prd_ls14=Label(frm_mast1, text="Amount",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_mast1.create_window(900,195, anchor="center", window=prd_ls14)
+
+                            # values Section 
+                            cmb1= StringVar()
+                            prd_r1c1 = ttk.Combobox(frm_mast1,textvariable=cmb1,width=18,font=('Calibri 16'))
+                            prd_r1c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(120, 235, anchor="nw", window=prd_r1c1, tag=("cmb_action"))
+
+
+                            prd_r1c2 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(350,235, anchor="nw", window=prd_r1c2,)
+
+                            prd_r1c3 = Spinbox(frm_mast1,from_=1,to=1000000,width=10, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(600, 250, anchor="center", window=prd_r1c3,)
+
+                            prd_r1c4 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(678,235, anchor="nw", window=prd_r1c4,)
+
+                            prd_r1c5 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(825,235, anchor="nw", window=prd_r1c5,)
+
+                            #----------------------------------------------------------------------row 2
+                            cmbr2= StringVar()
+                            prd_r2c1 = ttk.Combobox(frm_mast1,textvariable=cmbr2,width=18,font=('Calibri 16'))
+                            prd_r2c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(120, 280, anchor="nw", window=prd_r2c1, tag=("cmb_action"))
+
+
+                            prd_r2c2 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(350,280, anchor="nw", window=prd_r2c2,)
+
+                            prd_r2c3 = Spinbox(frm_mast1,from_=1,to=1000000,width=10, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(600, 295, anchor="center", window=prd_r2c3,)
+
+                            prd_r2c4 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(678,280, anchor="nw", window=prd_r2c4,)
+
+                            prd_r2c5 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(825,280, anchor="nw", window=prd_r2c5,)
+
+                            #----------------------------------------------------------------------row 
+                            cmbr3= StringVar()
+                            prd_r3c1 = ttk.Combobox(frm_mast1,textvariable=cmbr3,width=18,font=('Calibri 16'))
+                            prd_r3c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(120, 325, anchor="nw", window=prd_r3c1, tag=("cmb_action"))
+
+
+                            prd_r3c2 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(350,325, anchor="nw", window=prd_r3c2,)
+
+                            prd_r3c3 = Spinbox(frm_mast1,from_=1,to=1000000,width=10, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(600, 340, anchor="center", window=prd_r3c3,)
+
+                            prd_r3c4 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(678,325, anchor="nw", window=prd_r3c4,)
+
+                            prd_r3c5 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(825,325, anchor="nw", window=prd_r3c5,)
+
+                            #----------------------------------------------------------------------row 4
+                            cmbr4= StringVar()
+                            prd_r4c1 = ttk.Combobox(frm_mast1,textvariable=cmbr4,width=18,font=('Calibri 16'))
+                            prd_r4c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(120, 370, anchor="nw", window=prd_r4c1, tag=("cmb_action"))
+
+
+                            prd_r4c2 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(350,370, anchor="nw", window=prd_r4c2,)
+
+                            prd_r4c3 = Spinbox(frm_mast1,from_=1,to=1000000,width=10, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(600, 385, anchor="center", window=prd_r4c3,)
+
+                            prd_r4c4 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(678,370, anchor="nw", window=prd_r4c4,)
+
+                            prd_r4c5 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(825,370, anchor="nw", window=prd_r4c5,)
+
+                            #----------------------------------------------------------------------row 5
+                            cmbr5= StringVar()
+                            prd_r5c1 = ttk.Combobox(frm_mast1,textvariable=cmbr5,width=18,font=('Calibri 16'))
+                            prd_r5c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(120, 415, anchor="nw", window=prd_r5c1, tag=("cmb_action"))
+
+
+                            prd_r5c2 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(350,415, anchor="nw", window=prd_r5c2,)
+
+                            prd_r5c3 = Spinbox(frm_mast1,from_=1,to=1000000,width=10, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(600, 430, anchor="center", window=prd_r5c3,)
+
+                            prd_r5c4 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(678,415, anchor="nw", window=prd_r5c4,)
+
+                            prd_r5c5 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(825,415, anchor="nw", window=prd_r5c5,)
+
+                            #----------------------------------------------------------------------row 6
+                            cmbr6= StringVar()
+                            prd_r6c1 = ttk.Combobox(frm_mast1,textvariable=cmbr6,width=18,font=('Calibri 16'))
+                            prd_r6c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(120, 460, anchor="nw", window=prd_r6c1, tag=("cmb_action"))
+
+
+                            prd_r6c2 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(350,460, anchor="nw", window=prd_r6c2,)
+
+                            prd_r6c3 = Spinbox(frm_mast1,from_=1,to=1000000,width=10, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(600, 475, anchor="center", window=prd_r6c3,)
+
+                            prd_r6c4 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(678,460, anchor="nw", window=prd_r6c4,)
+
+                            prd_r6c5 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(825,460, anchor="nw", window=prd_r6c5,)
+
+                            #----------------------------------------------------------------------row 7
+                            cmbr7= StringVar()
+                            prd_r7c1 = ttk.Combobox(frm_mast1,textvariable=cmbr7,width=18,font=('Calibri 16'))
+                            prd_r7c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(120, 505, anchor="nw", window=prd_r7c1, tag=("cmb_action"))
+
+
+                            prd_r7c2 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(350,505, anchor="nw", window=prd_r7c2,)
+
+                            prd_r7c3 = Spinbox(frm_mast1,from_=1,to=1000000,width=10, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(600, 520, anchor="center", window=prd_r7c3,)
+
+                            prd_r7c4 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(678,505, anchor="nw", window=prd_r7c4,)
+
+                            prd_r7c5 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(825,505, anchor="nw", window=prd_r7c5,)
+
+                            #----------------------------------------------------------------------row 8
+                            cmbr8= StringVar()
+                            prd_r8c1 = ttk.Combobox(frm_mast1,textvariable=cmbr8,width=18,font=('Calibri 16'))
+                            prd_r8c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(120, 550, anchor="nw", window=prd_r8c1, tag=("cmb_action"))
+
+
+                            prd_r8c2 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(350,550, anchor="nw", window=prd_r8c2,)
+
+                            prd_r8c3 = Spinbox(frm_mast1,from_=1,to=1000000,width=10, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(600, 565, anchor="center", window=prd_r8c3,)
+
+                            prd_r8c4 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(678,550, anchor="nw", window=prd_r8c4,)
+
+                            prd_r8c5 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(825,550, anchor="nw", window=prd_r8c5,)
+
+                            #----------------------------------------------------------------------row 9
+                            cmbr9= StringVar()
+                            prd_r9c1 = ttk.Combobox(frm_mast1,textvariable=cmbr9,width=18,font=('Calibri 16'))
+                            prd_r9c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(120, 595, anchor="nw", window=prd_r9c1, tag=("cmb_action"))
+
+
+                            prd_r9c2 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(350,595, anchor="nw", window=prd_r9c2,)
+
+                            prd_r9c3 = Spinbox(frm_mast1,from_=1,to=1000000,width=10, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(600, 610, anchor="center", window=prd_r9c3,)
+
+                            prd_r9c4 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(678,595, anchor="nw", window=prd_r9c4,)
+
+                            prd_r9c5 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(825,595, anchor="nw", window=prd_r9c5,)
+
+                            #----------------------------------------------------------------------row 10
+                            cmbr10= StringVar()
+                            prd_r10c1 = ttk.Combobox(frm_mast1,textvariable=cmbr10,width=18,font=('Calibri 16'))
+                            prd_r10c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(120, 640, anchor="nw", window=prd_r10c1, tag=("cmb_action"))
+
+
+                            prd_r10c2 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(350,640, anchor="nw", window=prd_r10c2,)
+
+                            prd_r10c3 = Spinbox(frm_mast1,from_=1,to=1000000,width=10, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(600, 655, anchor="center", window=prd_r10c3,)
+
+                            prd_r10c4 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(678,640, anchor="nw", window=prd_r10c4,)
+
+                            prd_r10c5 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(825,640, anchor="nw", window=prd_r10c5,)
+
+                            #----------------------------------------------------------------------row 11
+                            cmbr11= StringVar()
+                            prd_r11c1 = ttk.Combobox(frm_mast1,textvariable=cmbr11,width=18,font=('Calibri 16'))
+                            prd_r11c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(120, 685, anchor="nw", window=prd_r11c1, tag=("cmb_action"))
+
+
+                            prd_r11c2 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(350,685, anchor="nw", window=prd_r11c2,)
+
+                            prd_r11c3 = Spinbox(frm_mast1,from_=1,to=1000000,width=10, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(600, 700, anchor="center", window=prd_r11c3,)
+
+                            prd_r11c4 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(678,685, anchor="nw", window=prd_r11c4,)
+
+                            prd_r11c5 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(825,685, anchor="nw", window=prd_r11c5,)
+
+                            #----------------------------------------------------------------------row 2
+                            cmbr12= StringVar()
+                            prd_r12c1 = ttk.Combobox(frm_mast1,textvariable=cmbr12,width=18,font=('Calibri 16'))
+                            prd_r12c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(120, 730, anchor="nw", window=prd_r12c1, tag=("cmb_action"))
+
+
+                            prd_r12c2 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(350,730, anchor="nw", window=prd_r12c2,)
+
+                            prd_r12c3 = Spinbox(frm_mast1,from_=1,to=1000000,width=10, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(600, 745, anchor="center", window=prd_r12c3,)
+
+                            prd_r12c4 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(678,730, anchor="nw", window=prd_r12c4,)
+
+                            prd_r12c5 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(825,730, anchor="nw", window=prd_r12c5,)
+
+                            #----------------------------------------------------------------------row 
+                            cmbr13= StringVar()
+                            prd_r13c1 = ttk.Combobox(frm_mast1,textvariable=cmbr13,width=18,font=('Calibri 16'))
+                            prd_r13c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(120, 775, anchor="nw", window=prd_r13c1, tag=("cmb_action"))
+
+
+                            prd_r13c2 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(350,775, anchor="nw", window=prd_r13c2,)
+
+                            prd_r13c3 = Spinbox(frm_mast1,from_=1,to=1000000,width=10, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(600, 790, anchor="center", window=prd_r13c3,)
+
+                            prd_r13c4 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(678,775, anchor="nw", window=prd_r13c4,)
+
+                            prd_r13c5 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(825,775, anchor="nw", window=prd_r13c5,)
+
+                            #----------------------------------------------------------------------row 4
+                            cmbr14= StringVar()
+                            prd_r14c1 = ttk.Combobox(frm_mast1,textvariable=cmbr14,width=18,font=('Calibri 16'))
+                            prd_r14c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(120, 820, anchor="nw", window=prd_r14c1, tag=("cmb_action"))
+
+
+                            prd_r14c2 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(350,820, anchor="nw", window=prd_r14c2,)
+
+                            prd_r14c3 = Spinbox(frm_mast1,from_=1,to=1000000,width=10, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(600, 835, anchor="center", window=prd_r14c3,)
+
+                            prd_r14c4 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(678,820, anchor="nw", window=prd_r14c4,)
+
+                            prd_r14c5 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(825,820, anchor="nw", window=prd_r14c5,)
+
+                            #----------------------------------------------------------------------row 5
+                            cmbr15= StringVar()
+                            prd_r15c1 = ttk.Combobox(frm_mast1,textvariable=cmbr15,width=18,font=('Calibri 16'))
+                            prd_r15c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(120, 865, anchor="nw", window=prd_r15c1, tag=("cmb_action"))
+
+
+                            prd_r15c2 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(350,865, anchor="nw", window=prd_r15c2,)
+
+                            prd_r15c3 = Spinbox(frm_mast1,from_=1,to=1000000,width=10, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(600, 880, anchor="center", window=prd_r15c3,)
+
+                            prd_r15c4 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(678,865, anchor="nw", window=prd_r15c4,)
+
+                            prd_r15c5 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(825,865, anchor="nw", window=prd_r15c5,)
+                            #--------------------------------------------------------------------------tot
+                            prd_r16c3 = Spinbox(frm_mast1,from_=1,to=1000000,width=10, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(600, 925, anchor="center", window=prd_r16c3,)
+
+                            prd_r16c5 = Entry(frm_mast1, width=15, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(825,910, anchor="nw", window=prd_r16c5,)
+
+                            #3333333333333333333333333333333333333333333333333333333333333333333333second table
+                            prd_ls10=Label(frm_mast1, text="Name Of Item",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_mast1.create_window(1085,195, anchor="center", window=prd_ls10)
+
+                            prd_ls11=Label(frm_mast1, text="Sku",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_mast1.create_window(1265,195, anchor="center", window=prd_ls11)
+
+                            prd_ls12=Label(frm_mast1, text="% of Cost\nallocation",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_mast1.create_window(1400,195, anchor="center", window=prd_ls12)
+
+                            prd_ls12=Label(frm_mast1, text="Quantity",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_mast1.create_window(1523,195, anchor="center", window=prd_ls12)
+
+                            prd_ls13=Label(frm_mast1, text="Rate",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_mast1.create_window(1638,195, anchor="center", window=prd_ls13)
+
+                            prd_ls14=Label(frm_mast1, text="Amount",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_mast1.create_window(1790,195, anchor="center", window=prd_ls14)
+
+                            # valuesss
+                            #----------------------------------------------------------------------row 1
+                            cmbr1_2= StringVar()
+                            prd_r1_2c1 = ttk.Combobox(frm_mast1,textvariable=cmbr1_2,width=15,font=('Calibri 16'))
+                            prd_r1_2c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(1000, 235, anchor="nw", window=prd_r1_2c1, tag=("cmb_action"))
+
+                            prd_r1_2c2 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1195,235, anchor="nw", window=prd_r1_2c2,)
+                            
+                            prd_r1_2c3 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1345,235, anchor="nw", window=prd_r1_2c3,)
+
+                            prd_r1_2c4 = Spinbox(frm_mast1,from_=1,to=1000000,width=7, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(1525, 250, anchor="center", window=prd_r1_2c4,)
+
+                            prd_r1_2c5 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1590,235, anchor="nw", window=prd_r1_2c5,)
+
+                            prd_r1_2c6 = Entry(frm_mast1, width=13, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1723,235, anchor="nw", window=prd_r1_2c6,)
+
+                            #----------------------------------------------------------------------row 2
+                            cmbr2_2= StringVar()
+                            prd_r2_2c1 = ttk.Combobox(frm_mast1,textvariable=cmbr2_2,width=15,font=('Calibri 16'))
+                            prd_r2_2c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(1000, 280, anchor="nw", window=prd_r2_2c1, tag=("cmb_action"))
+
+                            prd_r2_2c2 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1195,280, anchor="nw", window=prd_r2_2c2,)
+                            
+                            prd_r2_2c3 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1345,280, anchor="nw", window=prd_r2_2c3,)
+
+                            prd_r2_2c4 = Spinbox(frm_mast1,from_=1,to=1000000,width=7, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(1525, 295, anchor="center", window=prd_r2_2c4,)
+
+                            prd_r2_2c5 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1590,280, anchor="nw", window=prd_r2_2c5,)
+
+                            prd_r2_2c6 = Entry(frm_mast1, width=13, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1723,280, anchor="nw", window=prd_r2_2c6,)
+
+                            #----------------------------------------------------------------------row 3
+                            cmbr3_2= StringVar()
+                            prd_r3_2c1 = ttk.Combobox(frm_mast1,textvariable=cmbr3_2,width=15,font=('Calibri 16'))
+                            prd_r3_2c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(1000, 325, anchor="nw", window=prd_r3_2c1, tag=("cmb_action"))
+
+                            prd_r3_2c2 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1195,325, anchor="nw", window=prd_r3_2c2,)
+                            
+                            prd_r3_2c3 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1345,325, anchor="nw", window=prd_r3_2c3,)
+
+                            prd_r3_2c4 = Spinbox(frm_mast1,from_=1,to=1000000,width=7, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(1525, 340, anchor="center", window=prd_r3_2c4,)
+
+                            prd_r3_2c5 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1590,325, anchor="nw", window=prd_r3_2c5,)
+
+                            prd_r3_2c6 = Entry(frm_mast1, width=13, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1723,325, anchor="nw", window=prd_r3_2c6,)
+
+                            #----------------------------------------------------------------------row 4
+                            cmbr4_2= StringVar()
+                            prd_r4_2c1 = ttk.Combobox(frm_mast1,textvariable=cmbr4_2,width=15,font=('Calibri 16'))
+                            prd_r4_2c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(1000, 370, anchor="nw", window=prd_r4_2c1, tag=("cmb_action"))
+
+                            prd_r4_2c2 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1195,370, anchor="nw", window=prd_r4_2c2,)
+                            
+                            prd_r4_2c3 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1345,370, anchor="nw", window=prd_r4_2c3,)
+
+                            prd_r4_2c4 = Spinbox(frm_mast1,from_=1,to=1000000,width=7, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(1525, 385, anchor="center", window=prd_r4_2c4,)
+
+                            prd_r4_2c5 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1590,370, anchor="nw", window=prd_r4_2c5,)
+
+                            prd_r4_2c6 = Entry(frm_mast1, width=13, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1723,370, anchor="nw", window=prd_r4_2c6,)
+
+                            #----------------------------------------------------------------------row 5
+                            cmbr5_2= StringVar()
+                            prd_r5_2c1 = ttk.Combobox(frm_mast1,textvariable=cmbr5_2,width=15,font=('Calibri 16'))
+                            prd_r5_2c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(1000, 415, anchor="nw", window=prd_r5_2c1, tag=("cmb_action"))
+
+                            prd_r5_2c2 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1195,415, anchor="nw", window=prd_r5_2c2,)
+                            
+                            prd_r5_2c3 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1345,415, anchor="nw", window=prd_r5_2c3,)
+
+                            prd_r5_2c4 = Spinbox(frm_mast1,from_=1,to=1000000,width=7, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(1525, 430, anchor="center", window=prd_r5_2c4,)
+
+                            prd_r5_2c5 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1590,415, anchor="nw", window=prd_r5_2c5,)
+
+                            prd_r5_2c6 = Entry(frm_mast1, width=13, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1723,415, anchor="nw", window=prd_r5_2c6,)
+
+                            #----------------------------------------------------------------------row 6
+                            cmbr6_2= StringVar()
+                            prd_r6_2c1 = ttk.Combobox(frm_mast1,textvariable=cmbr6_2,width=15,font=('Calibri 16'))
+                            prd_r6_2c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(1000, 460, anchor="nw", window=prd_r6_2c1, tag=("cmb_action"))
+
+                            prd_r6_2c2 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1195,460, anchor="nw", window=prd_r6_2c2,)
+                            
+                            prd_r6_2c3 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1345,460, anchor="nw", window=prd_r6_2c3,)
+
+                            prd_r6_2c4 = Spinbox(frm_mast1,from_=1,to=1000000,width=7, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(1525, 475, anchor="center", window=prd_r6_2c4,)
+
+                            prd_r6_2c5 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1590,460, anchor="nw", window=prd_r6_2c5,)
+
+                            prd_r6_2c6 = Entry(frm_mast1, width=13, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1723,460, anchor="nw", window=prd_r6_2c6,)
+
+                            #----------------------------------------------------------------------row 7
+                            cmbr7_2= StringVar()
+                            prd_r7_2c1 = ttk.Combobox(frm_mast1,textvariable=cmbr7_2,width=15,font=('Calibri 16'))
+                            prd_r7_2c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(1000, 505, anchor="nw", window=prd_r7_2c1, tag=("cmb_action"))
+
+                            prd_r7_2c2 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1195,505, anchor="nw", window=prd_r7_2c2,)
+                            
+                            prd_r7_2c3 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1345,505, anchor="nw", window=prd_r7_2c3,)
+
+                            prd_r7_2c4 = Spinbox(frm_mast1,from_=1,to=1000000,width=7, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(1525, 520, anchor="center", window=prd_r7_2c4,)
+
+                            prd_r7_2c5 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1590,505, anchor="nw", window=prd_r7_2c5,)
+
+                            prd_r7_2c6 = Entry(frm_mast1, width=13, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1723,505, anchor="nw", window=prd_r7_2c6,)
+
+                            #----------------------------------------------------------------------row 8
+                            cmbr8_2= StringVar()
+                            prd_r8_2c1 = ttk.Combobox(frm_mast1,textvariable=cmbr8_2,width=15,font=('Calibri 16'))
+                            prd_r8_2c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(1000, 550, anchor="nw", window=prd_r8_2c1, tag=("cmb_action"))
+
+                            prd_r8_2c2 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1195,550, anchor="nw", window=prd_r8_2c2,)
+                            
+                            prd_r8_2c3 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1345,550, anchor="nw", window=prd_r8_2c3,)
+
+                            prd_r8_2c4 = Spinbox(frm_mast1,from_=1,to=1000000,width=7, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(1525, 565, anchor="center", window=prd_r8_2c4,)
+
+                            prd_r8_2c5 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1590,550, anchor="nw", window=prd_r8_2c5,)
+
+                            prd_r8_2c6 = Entry(frm_mast1, width=13, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1723,550, anchor="nw", window=prd_r8_2c6,)
+
+                            #----------------------------------------------------------------------row 8
+                            cmbr9_2= StringVar()
+                            prd_r9_2c1 = ttk.Combobox(frm_mast1,textvariable=cmbr9_2,width=15,font=('Calibri 16'))
+                            prd_r9_2c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(1000, 595, anchor="nw", window=prd_r9_2c1, tag=("cmb_action"))
+
+                            prd_r9_2c2 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1195,595, anchor="nw", window=prd_r9_2c2,)
+                            
+                            prd_r9_2c3 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1345,595, anchor="nw", window=prd_r9_2c3,)
+
+                            prd_r9_2c4 = Spinbox(frm_mast1,from_=1,to=1000000,width=7, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(1525, 610, anchor="center", window=prd_r9_2c4,)
+
+                            prd_r9_2c5 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1590,595, anchor="nw", window=prd_r9_2c5,)
+
+                            prd_r9_2c6 = Entry(frm_mast1, width=13, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1723,595, anchor="nw", window=prd_r9_2c6,)
+
+                            #----------------------------------------------------------------------row10
+                            cmbr10_2= StringVar()
+                            prd_r10_2c1 = ttk.Combobox(frm_mast1,textvariable=cmbr10_2,width=15,font=('Calibri 16'))
+                            prd_r10_2c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(1000, 640, anchor="nw", window=prd_r10_2c1, tag=("cmb_action"))
+
+                            prd_r10_2c2 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1195,640, anchor="nw", window=prd_r10_2c2,)
+                            
+                            prd_r10_2c3 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1345,640, anchor="nw", window=prd_r10_2c3,)
+
+                            prd_r10_2c4 = Spinbox(frm_mast1,from_=1,to=1000000,width=7, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(1525, 655, anchor="center", window=prd_r10_2c4,)
+
+                            prd_r10_2c5 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1590,640, anchor="nw", window=prd_r10_2c5,)
+
+                            prd_r10_2c6 = Entry(frm_mast1, width=13, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1723,640, anchor="nw", window=prd_r10_2c6,)
+
+                            #----------------------------------------------------------------------row 11
+                            cmbr11_2= StringVar()
+                            prd_r11_2c1 = ttk.Combobox(frm_mast1,textvariable=cmbr11_2,width=15,font=('Calibri 16'))
+                            prd_r11_2c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(1000, 685, anchor="nw", window=prd_r11_2c1, tag=("cmb_action"))
+
+                            prd_r11_2c2 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1195,685, anchor="nw", window=prd_r11_2c2,)
+                            
+                            prd_r11_2c3 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1345,685, anchor="nw", window=prd_r11_2c3,)
+
+                            prd_r11_2c4 = Spinbox(frm_mast1,from_=1,to=1000000,width=7, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(1525, 700, anchor="center", window=prd_r11_2c4,)
+
+                            prd_r11_2c5 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1590,685, anchor="nw", window=prd_r11_2c5,)
+
+                            prd_r11_2c6 = Entry(frm_mast1, width=13, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1723,685, anchor="nw", window=prd_r11_2c6,)
+
+                            #----------------------------------------------------------------------row 6
+                            cmbr12_2= StringVar()
+                            prd_r12_2c1 = ttk.Combobox(frm_mast1,textvariable=cmbr12_2,width=15,font=('Calibri 16'))
+                            prd_r12_2c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(1000, 730, anchor="nw", window=prd_r12_2c1, tag=("cmb_action"))
+
+                            prd_r12_2c2 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1195,730, anchor="nw", window=prd_r12_2c2,)
+                            
+                            prd_r12_2c3 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1345,730, anchor="nw", window=prd_r12_2c3,)
+
+                            prd_r12_2c4 = Spinbox(frm_mast1,from_=1,to=1000000,width=7, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(1525, 745, anchor="center", window=prd_r12_2c4,)
+
+                            prd_r12_2c5 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1590,730, anchor="nw", window=prd_r12_2c5,)
+
+                            prd_r12_2c6 = Entry(frm_mast1, width=13, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1723,730, anchor="nw", window=prd_r12_2c6,)
+
+                            #----------------------------------------------------------------------row 7
+                            cmbr13_2= StringVar()
+                            prd_r13_2c1 = ttk.Combobox(frm_mast1,textvariable=cmbr13_2,width=15,font=('Calibri 16'))
+                            prd_r13_2c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(1000, 775, anchor="nw", window=prd_r13_2c1, tag=("cmb_action"))
+
+                            prd_r13_2c2 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1195,775, anchor="nw", window=prd_r13_2c2,)
+                            
+                            prd_r13_2c3 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1345,775, anchor="nw", window=prd_r13_2c3,)
+
+                            prd_r13_2c4 = Spinbox(frm_mast1,from_=1,to=1000000,width=7, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(1525, 790, anchor="center", window=prd_r13_2c4,)
+
+                            prd_r13_2c5 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1590,775, anchor="nw", window=prd_r13_2c5,)
+
+                            prd_r13_2c6 = Entry(frm_mast1, width=13, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1723,775, anchor="nw", window=prd_r13_2c6,)
+
+                            #----------------------------------------------------------------------row 8
+                            cmbr14_2= StringVar()
+                            prd_r14_2c1 = ttk.Combobox(frm_mast1,textvariable=cmbr14_2,width=15,font=('Calibri 16'))
+                            prd_r14_2c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(1000, 820, anchor="nw", window=prd_r14_2c1, tag=("cmb_action"))
+
+                            prd_r14_2c2 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1195,820, anchor="nw", window=prd_r14_2c2,)
+                            
+                            prd_r14_2c3 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1345,820, anchor="nw", window=prd_r14_2c3,)
+
+                            prd_r14_2c4 = Spinbox(frm_mast1,from_=1,to=1000000,width=7, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(1525, 835, anchor="center", window=prd_r14_2c4,)
+
+                            prd_r14_2c5 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1590,820, anchor="nw", window=prd_r14_2c5,)
+
+                            prd_r14_2c6 = Entry(frm_mast1, width=13, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1723,820, anchor="nw", window=prd_r14_2c6,)
+
+                            #----------------------------------------------------------------------row 8
+                            cmbr15_2= StringVar()
+                            prd_r15_2c1 = ttk.Combobox(frm_mast1,textvariable=cmbr15_2,width=15,font=('Calibri 16'))
+                            prd_r15_2c1['values'] = ('Edit','Delete')
+                            win_inv1 = frm_mast1.create_window(1000, 865, anchor="nw", window=prd_r15_2c1, tag=("cmb_action"))
+
+                            prd_r15_2c2 = Entry(frm_mast1, width=12, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1195,865, anchor="nw", window=prd_r15_2c2,)
+                            
+                            prd_r15_2c3 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1345,865, anchor="nw", window=prd_r15_2c3,)
+
+                            prd_r15_2c4 = Spinbox(frm_mast1,from_=1,to=1000000,width=7, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(1525, 880, anchor="center", window=prd_r15_2c4,)
+
+                            prd_r15_2c5 = Entry(frm_mast1, width=10, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1590,865, anchor="nw", window=prd_r15_2c5,)
+
+                            prd_r15_2c6 = Entry(frm_mast1, width=13, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1723,865, anchor="nw", window=prd_r15_2c6,)
+
+                            #-------------------------------------------------------------last
+
+                            prd_r16_2c4 = Spinbox(frm_mast1,from_=1,to=1000000,width=7, font=('Calibri 16'),borderwidth=2)
+                            win_inv1 = frm_mast1.create_window(1525, 925, anchor="center", window=prd_r16_2c4,)
+
+                            prd_r16_2c6 = Entry(frm_mast1, width=13, font=('Calibri 16'))
+                            win_inv1 = frm_mast1.create_window(1723,910, anchor="nw", window=prd_r16_2c6,)
+                            
+                        #------------------------------------------------------------------------wages
+                            frm_prd_cret.create_line(0, 0, 0, 0,fill="gray",tag=("hr1") )#topLine hr
+
+                            frm_prd_cret.create_line(0, 0, 0, 0,fill="gray",tag=("hr2") )#topLine2 hr
+
+                            frm_prd_cret.create_line(0, 0, 0, 0,fill="gray",tag=("hr1") )#topLine3 hr
+
+                            frm_prd_cret.create_line(0, 0, 0, 0,fill="gray",tag=("hr1") )#topLine4 hr
+
+                            frm_prd_cret.create_line(0, 0, 0, 0,fill="gray",tag=("vr1") )#topLine vr
+
+                            frm_prd_cret.create_line(0, 0, 0, 0,fill="gray",tag=("vr2") )#topLine left vr
+
+                            frm_prd_cret.create_line(0, 0, 0, 0,fill="gray",tag=("var3") )#topLine right vr
+                            frm_prd_cret.create_line(0, 0, 0, 0,fill="gray",tag=("var4") )#topLine right vr
+                            
+                            frm_prd_cret.create_line(0, 0, 0, 0,fill="gray",tag=("hr3") )#topLine4 hr
+                            
+
+                            #datsa
+                            wg_r1c1 = Label(frm_prd_cret, text="Type of Additional Cost",bg="#213b52", fg="White", anchor="center", font=('Calibri 16 bold'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=wg_r1c1, tag=("wg_r1c1"))
+
+                            wg_r1c2 = Label(frm_prd_cret, text="Percentage(%)",bg="#213b52", fg="White", anchor="center", font=('Calibri 16 bold'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=wg_r1c2, tag=("wg_r1c2"))
+
+                            wg_r1c3 = Label(frm_prd_cret, text="Amount($)",bg="#213b52", fg="White", anchor="center", font=('Calibri 16 bold'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=wg_r1c3, tag=("wg_r1c3"))
+
+                            #entry
+                            wg_r2c1 = Entry(frm_prd_cret, width=35, font=('Calibri 16'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=wg_r2c1, tag=("wg_r2c1"))
+
+                            wg_r2c2 = Entry(frm_prd_cret, width=35, font=('Calibri 16'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=wg_r2c2, tag=("wg_r2c2"))
+
+                            wg_r2c3 = Entry(frm_prd_cret, width=35, font=('Calibri 16'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=wg_r2c3, tag=("wg_r2c3"))
+
+                            #entry2
+                            wg_r3c1 = Entry(frm_prd_cret, width=35, font=('Calibri 16'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=wg_r3c1, tag=("wg_r3c1"))
+
+                            wg_r3c2 = Entry(frm_prd_cret, width=35, font=('Calibri 16'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=wg_r3c2, tag=("wg_r3c2"))
+
+                            wg_r3c3 = Entry(frm_prd_cret, width=35, font=('Calibri 16'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=wg_r3c3, tag=("wg_r3c3"))
+
+                            #entry3
+                            wg_r4c1 = Entry(frm_prd_cret, width=35, font=('Calibri 16'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=wg_r4c1, tag=("wg_r4c1"))
+
+                            wg_r4c2 = Entry(frm_prd_cret, width=35, font=('Calibri 16'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=wg_r4c2, tag=("wg_r4c2"))
+
+                            wg_r4c3 = Entry(frm_prd_cret, width=35, font=('Calibri 16'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=wg_r4c3, tag=("wg_r4c3"))
+
+                            #entry4
+                            wg_r5c1 = Entry(frm_prd_cret, width=35, font=('Calibri 16'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=wg_r5c1, tag=("wg_r5c1"))
+
+                            wg_r5c2 = Entry(frm_prd_cret, width=35, font=('Calibri 16'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=wg_r5c2, tag=("wg_r5c2"))
+
+                            wg_r5c3 = Entry(frm_prd_cret, width=35, font=('Calibri 16'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=wg_r5c3, tag=("wg_r5c3"))
+
+                            #entry5
+                            wg_r6c1 = Entry(frm_prd_cret, width=35, font=('Calibri 16'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=wg_r6c1, tag=("wg_r6c1"))
+
+                            wg_r6c2 = Entry(frm_prd_cret, width=35, font=('Calibri 16'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=wg_r6c2, tag=("wg_r6c2"))
+
+                            wg_r6c3 = Entry(frm_prd_cret, width=35, font=('Calibri 16'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=wg_r6c3, tag=("wg_r6c3"))
+
+                            #sum
+
+                            lb_sum=Label(frm_prd_cret, text="Total Add. Cost:",bg="#213b52", fg="White", anchor="center",font=('Calibri 16 bold'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=lb_sum,tag=("lb_sum"))
+
+                            wg_r7c3 = Entry(frm_prd_cret, width=35, font=('Calibri 16'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=wg_r7c3, tag=("wg_r7c3"))
+
+                            lb_cst=Label(frm_prd_cret, text="Effective Cost:",bg="#213b52", fg="White", anchor="center",font=('Calibri 16 bold'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=lb_cst,tag=("lb_cst"))
+
+                            wg_r8c3 = Entry(frm_prd_cret, width=35, font=('Calibri 16'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=wg_r8c3, tag=("wg_r8c3"))
+
+                            lb_tt=Label(frm_prd_cret, text="Effective Rate Of Primary Item:",bg="#213b52", fg="White", anchor="center",font=('Calibri 16 bold'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="center", window=lb_tt,tag=("lb_tt"))
+
+                            wg_r9c3 = Entry(frm_prd_cret, width=35, font=('Calibri 16'))
+                            win_inv1 = frm_prd_cret.create_window(0, 0, anchor="nw", window=wg_r9c3, tag=("wg_r9c3"))
+                        else:
+                            pass
                     mit_ma_frm.grid_rowconfigure(0,weight=1)
                     mit_ma_frm.grid_columnconfigure(0,weight=1)
 
@@ -15502,7 +16550,7 @@ def main_sign_in():
                     #----------------------------------------------------------------------------------heder 1
                     rth2 = frm_mit_ma.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, fill="#213b52",tags=("bg_polygen_flow"),smooth=True,)
 
-                    lv_name=Label(frm_mit_ma, text="Meterial Master",bg="#213b52", fg="White", anchor="center",font=('Calibri 24 bold'))
+                    lv_name=Label(frm_mit_ma, text="Meterial Master",bg="#213b52", fg="White", anchor="e",font=('Calibri 24 bold'))
                     win_inv1 = frm_mit_ma.create_window(0, 0, anchor="center", window=lv_name,tag=("leb_hdd"))
                     frm_mit_ma.create_line(0, 0, 0, 0,fill="gray", tag=("flow_hr") )
 
@@ -15512,6 +16560,8 @@ def main_sign_in():
                     act_var= StringVar()
                     cmb_action = ttk.Combobox(frm_mit_ma,textvariable=act_var,width=10,font=('Calibri 16'))
                     cmb_action['values'] = ('Edit','Delete')
+                    cmb_action.bind('<<ComboboxSelected>>',edit_prods)
+                    
                     win_inv1 = frm_mit_ma.create_window(0, 0, anchor="nw", window=cmb_action, tag=("cmb_action"))
 
                     fgth = ttk.Style()
@@ -15621,12 +16671,304 @@ def main_sign_in():
                         x1,y1,
                         )   
                         
-                        dcanvas.coords("leb_hdd",dwidth/2,dheight/7)  
-                        dcanvas.coords("flow_hr",dwidth/40,dheight/4.5,dwidth/1.03,dheight/4.5)
-                        dcanvas.coords("crt_prod",dwidth/1.8,dheight/3.6) 
+                        dcanvas.coords("pr_hdd",dwidth/2,dheight/7)  
+                        dcanvas.coords("pr_hr",dwidth/40,dheight/5.4,dwidth/1.03,dheight/5.4)
 
+                        dcanvas.coords("crt_pr",dwidth/1.32,dheight/3.2)
+                        dcanvas.coords("cmb_action_pr",dwidth/1.15,dheight/3.2)
+                        dcanvas.coords("tree_pr",dwidth/41,dheight/2.7)
 
+                    def add_products():
+                        scrollPpr.grid_forget()
+       
+                        def red_pr_cret(event):
+                            dwidth = event.width
+                            dheight = event.height
+                            dcanvas = event.widget
+                            
+                            
+                            
+                            r1 = 25
+                            x1 = dwidth/63
+                            x2 = dwidth/1.021
+                            y1 = dheight/13
+                            y2 = dheight/4
 
+                            dcanvas.coords("bg_pr_crt",x1 + r1,y1,
+                            x1 + r1,y1,
+                            x2 - r1,y1,
+                            x2 - r1,y1,     
+                            x2,y1,     
+                            #--------------------
+                            x2,y1 + r1,     
+                            x2,y1 + r1,     
+                            x2,y2 - r1,     
+                            x2,y2 - r1,     
+                            x2,y2,
+                            #--------------------
+                            x2 - r1,y2,     
+                            x2 - r1,y2,     
+                            x1 + r1,y2,
+                            x1 + r1,y2,
+                            x1,y2,
+                            #--------------------
+                            x1,y2 - r1,
+                            x1,y2 - r1,
+                            x1,y1 + r1,
+                            x1,y1 + r1,
+                            x1,y1,
+                            )   
+
+                            r1 = 25
+                            x1 = dwidth/63
+                            x2 = dwidth/1.021
+                            y1 = dheight/3.5
+                            y2 = dheight/.88
+
+                            dcanvas.coords("bg_pr_crt_2",x1 + r1,y1,
+                            x1 + r1,y1,
+                            x2 - r1,y1,
+                            x2 - r1,y1,     
+                            x2,y1,     
+                            #--------------------
+                            x2,y1 + r1,     
+                            x2,y1 + r1,     
+                            x2,y2 - r1,     
+                            x2,y2 - r1,     
+                            x2,y2,
+                            #--------------------
+                            x2 - r1,y2,     
+                            x2 - r1,y2,     
+                            x1 + r1,y2,
+                            x1 + r1,y2,
+                            x1,y2,
+                            #--------------------
+                            x1,y2 - r1,
+                            x1,y2 - r1,
+                            x1,y1 + r1,
+                            x1,y1 + r1,
+                            x1,y1,
+                            )   
+                            
+                            
+                            dcanvas.coords("btn_pr_ed",dwidth/20,dheight/3)
+                            dcanvas.coords("pr_crt_hd",dwidth/2,dheight/7)
+                            dcanvas.coords("crt_pr_hr",dwidth/40,dheight/5.4,dwidth/1.03,dheight/5.4)
+                            dcanvas.coords("img_flow",dwidth/40 ,dheight/2.3) 
+                            dcanvas.coords("flow_hr2",dwidth/40,dheight/2.5,dwidth/1.03,dheight/2.5)
+                            dcanvas.coords("hf_lb_2",dwidth/2,dheight/3) 
+
+                            #entry Box
+                            dcanvas.coords("pr_nm_lb",dwidth/1.93 ,dheight/2.2) 
+                            dcanvas.coords("pr_nm",dwidth/2 ,dheight/2.1) 
+
+                            dcanvas.coords("pr_sku_lb",dwidth/1.503 ,dheight/2.2) 
+                            dcanvas.coords("pr_sku",dwidth/1.523 ,dheight/2.1)
+
+                            dcanvas.coords("pr_prs_lb",dwidth/1.215 ,dheight/2.2) 
+                            dcanvas.coords("pr_prs",dwidth/1.23 ,dheight/2.1)
+
+                            dcanvas.coords("butn_crt_pr",dwidth/1.47 ,dheight/1.45)
+                     
+                        def back_pr_add():
+                            frm_pr_cret.grid_forget()
+                            pr_cret.grid_forget()
+                            scrollPpr.grid(row=0,column=1,sticky='ns')
+                            
+                        frm_pr_cret = Canvas(prc_ma_frm,height=700,bg='#2f516f',scrollregion=(0,0,700,750))
+                        pr_cret = Scrollbar(prc_ma_frm,orient=VERTICAL)
+                        pr_cret.grid(row=0,column=2,sticky='ns')
+                        pr_cret.config(command=frm_pr_cret.yview)
+                        frm_pr_cret.bind("<Configure>", red_pr_cret)
+                        frm_pr_cret.config(yscrollcommand=pr_cret.set)
+                        frm_pr_cret.grid(row=0,column=0,sticky='nsew')
+
+                        #----------------------------------------------------------------------------------heder 1
+                        rth2 = frm_pr_cret.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, fill="#213b52",tags=("bg_pr_crt"),smooth=True,)
+
+                        lbs_hd=Label(frm_pr_cret, text="Add Product",bg="#213b52", fg="White", anchor="center",font=('Calibri 24 bold'))
+                        win_inv1 = frm_pr_cret.create_window(0, 0, anchor="center", window=lbs_hd,tag=("pr_crt_hd"))
+                        
+                        frm_pr_cret.create_line(0, 0, 0, 0,fill="gray", tag=("crt_pr_hr") )
+
+                        btn_pr_ed=Button(frm_pr_cret,text="← Back", command=back_pr_add, bd=0, bg="#213b52",fg="white",font=('Calibri 14 bold'))
+                        win_inv1 = frm_pr_cret.create_window(0, 0, anchor="center", window=btn_pr_ed,tag=("btn_pr_ed")) 
+                        
+                        rth2 = frm_pr_cret.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, fill="#213b52",tags=("bg_pr_crt_2"),smooth=True,)
+
+                        frm_pr_cret.create_line(0, 0, 0, 0,fill="gray", tag=("flow_hr2") )
+                        lv_name=Label(frm_pr_cret, text="Product Information",bg="#213b52", fg="White", anchor="center",font=('Calibri 18 bold'))
+                        win_inv1 = frm_pr_cret.create_window(0, 0, anchor="center", window=lv_name,tag=("hf_lb_2"))
+
+                        img = Label(frm_pr_cret, image = des_prd,bg="#213b52",  justify=RIGHT)
+                        win_inv1 = frm_pr_cret.create_window(0, 0, anchor="nw", window=img, tag=("img_flow"))
+
+                        pr_nm_lb=Label(frm_pr_cret, text="Name",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                        win_inv1 = frm_pr_cret.create_window(0, 0, anchor="center", window=pr_nm_lb,tag=("pr_nm_lb"))
+                        pr_nm = Entry(frm_pr_cret, width=18, font=('Calibri 16'))
+                        win_inv1 = frm_pr_cret.create_window(0, 0, anchor="nw", window=pr_nm, tag=("pr_nm"))
+
+                        pr_sku_lb=Label(frm_pr_cret, text="Sku",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                        win_inv1 = frm_pr_cret.create_window(0, 0, anchor="center", window=pr_sku_lb,tag=("pr_sku_lb"))
+                        pr_sku = Entry(frm_pr_cret, width=18, font=('Calibri 16'))
+                        win_inv1 = frm_pr_cret.create_window(0, 0, anchor="nw", window=pr_sku, tag=("pr_sku"))
+
+                        pr_prs_lb=Label(frm_pr_cret, text="Price",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                        win_inv1 = frm_pr_cret.create_window(0, 0, anchor="center", window=pr_prs_lb,tag=("pr_prs_lb"))
+                        pr_prs = Entry(frm_pr_cret, width=18, font=('Calibri 16'))
+                        win_inv1 = frm_pr_cret.create_window(0, 0, anchor="nw", window=pr_prs, tag=("pr_prs"))
+
+                        
+
+                        butn_crt_pr = customtkinter.CTkButton(master=frm_pr_cret,command=main_sign_in,text="Create",bg="#213b52")
+                        win_inv1 = frm_pr_cret.create_window(0, 0, anchor="nw", window=butn_crt_pr, tag=("butn_crt_pr"))
+
+                    def edit_prc(event):
+                        scrollPpr.grid_forget()
+                        if act_var_pr.get()=="Edit":
+                            
+                            def red_pr_ed_cret(event):
+                                dwidth = event.width
+                                dheight = event.height
+                                dcanvas = event.widget
+                                
+                                
+                                
+                                r1 = 25
+                                x1 = dwidth/63
+                                x2 = dwidth/1.021
+                                y1 = dheight/13
+                                y2 = dheight/4
+
+                                dcanvas.coords("bg_pr_crt",x1 + r1,y1,
+                                x1 + r1,y1,
+                                x2 - r1,y1,
+                                x2 - r1,y1,     
+                                x2,y1,     
+                                #--------------------
+                                x2,y1 + r1,     
+                                x2,y1 + r1,     
+                                x2,y2 - r1,     
+                                x2,y2 - r1,     
+                                x2,y2,
+                                #--------------------
+                                x2 - r1,y2,     
+                                x2 - r1,y2,     
+                                x1 + r1,y2,
+                                x1 + r1,y2,
+                                x1,y2,
+                                #--------------------
+                                x1,y2 - r1,
+                                x1,y2 - r1,
+                                x1,y1 + r1,
+                                x1,y1 + r1,
+                                x1,y1,
+                                )   
+
+                                r1 = 25
+                                x1 = dwidth/63
+                                x2 = dwidth/1.021
+                                y1 = dheight/3.5
+                                y2 = dheight/.88
+
+                                dcanvas.coords("bg_pr_crt_2",x1 + r1,y1,
+                                x1 + r1,y1,
+                                x2 - r1,y1,
+                                x2 - r1,y1,     
+                                x2,y1,     
+                                #--------------------
+                                x2,y1 + r1,     
+                                x2,y1 + r1,     
+                                x2,y2 - r1,     
+                                x2,y2 - r1,     
+                                x2,y2,
+                                #--------------------
+                                x2 - r1,y2,     
+                                x2 - r1,y2,     
+                                x1 + r1,y2,
+                                x1 + r1,y2,
+                                x1,y2,
+                                #--------------------
+                                x1,y2 - r1,
+                                x1,y2 - r1,
+                                x1,y1 + r1,
+                                x1,y1 + r1,
+                                x1,y1,
+                                )   
+
+                                
+                                dcanvas.coords("btn_pr_edt",dwidth/20,dheight/3)
+                                dcanvas.coords("pr_crt_hd",dwidth/2,dheight/7)
+                                dcanvas.coords("crt_pr_hr",dwidth/40,dheight/5.4,dwidth/1.03,dheight/5.4)
+                                dcanvas.coords("img_flow",dwidth/40 ,dheight/2.3) 
+                                dcanvas.coords("flow_hr2",dwidth/40,dheight/2.5,dwidth/1.03,dheight/2.5)
+                                dcanvas.coords("hf_lb_2",dwidth/2,dheight/3) 
+
+                                #entry Box
+                                dcanvas.coords("pr_nm_lb",dwidth/1.93 ,dheight/2.2) 
+                                dcanvas.coords("pr_nm",dwidth/2 ,dheight/2.1) 
+
+                                dcanvas.coords("pr_sku_lb",dwidth/1.503 ,dheight/2.2) 
+                                dcanvas.coords("pr_sku",dwidth/1.523 ,dheight/2.1)
+
+                                dcanvas.coords("pr_prs_lb",dwidth/1.215 ,dheight/2.2) 
+                                dcanvas.coords("pr_prs",dwidth/1.23 ,dheight/2.1)
+
+                                dcanvas.coords("butn_crt_pr",dwidth/1.47 ,dheight/1.45)
+                        
+                            def back_prc_add():
+                                frm_pr_ed_cret.grid_forget()
+                                pr_ed.grid_forget()
+                                scrollPpr.grid(row=0,column=1,sticky='ns')
+
+                                    
+                            frm_pr_ed_cret = Canvas(prc_ma_frm,height=700,bg='#2f516f',scrollregion=(0,0,700,750))
+                            pr_ed = Scrollbar(prc_ma_frm,orient=VERTICAL)
+                            pr_ed.grid(row=0,column=2,sticky='ns')
+                            pr_ed.config(command=frm_pr_ed_cret.yview)
+                            frm_pr_ed_cret.bind("<Configure>", red_pr_ed_cret)
+                            frm_pr_ed_cret.config(yscrollcommand=pr_ed.set)
+                            frm_pr_ed_cret.grid(row=0,column=0,sticky='nsew')
+
+                            #----------------------------------------------------------------------------------heder 1
+                            rth2 = frm_pr_ed_cret.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, fill="#213b52",tags=("bg_pr_crt"),smooth=True,)
+
+                            lbs_hd=Label(frm_pr_ed_cret, text="Edit Product",bg="#213b52", fg="White", anchor="center",font=('Calibri 24 bold'))
+                            win_inv1 = frm_pr_ed_cret.create_window(0, 0, anchor="center", window=lbs_hd,tag=("pr_crt_hd"))
+                            
+                            frm_pr_ed_cret.create_line(0, 0, 0, 0,fill="gray", tag=("crt_pr_hr") )
+
+                            btn_pr_edt=Button(frm_pr_ed_cret,text="← Back", command=back_prc_add, bd=0, bg="#213b52",fg="white",font=('Calibri 14 bold'))
+                            win_inv1 = frm_pr_ed_cret.create_window(0, 0, anchor="center", window=btn_pr_edt,tag=("btn_pr_edt"))
+                            
+                            rth2 = frm_pr_ed_cret.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, fill="#213b52",tags=("bg_pr_crt_2"),smooth=True,)
+
+                            frm_pr_ed_cret.create_line(0, 0, 0, 0,fill="gray", tag=("flow_hr2") )
+                            lv_name=Label(frm_pr_ed_cret, text="Product Information",bg="#213b52", fg="White", anchor="center",font=('Calibri 18 bold'))
+                            win_inv1 = frm_pr_ed_cret.create_window(0, 0, anchor="center", window=lv_name,tag=("hf_lb_2"))
+
+                            img = Label(frm_pr_ed_cret, image = des_prd,bg="#213b52",  justify=RIGHT)
+                            win_inv1 = frm_pr_ed_cret.create_window(0, 0, anchor="nw", window=img, tag=("img_flow"))
+
+                            pr_nm_lb=Label(frm_pr_ed_cret, text="Name",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_pr_ed_cret.create_window(0, 0, anchor="center", window=pr_nm_lb,tag=("pr_nm_lb"))
+                            pr_nm = Entry(frm_pr_ed_cret, width=18, font=('Calibri 16'))
+                            win_inv1 = frm_pr_ed_cret.create_window(0, 0, anchor="nw", window=pr_nm, tag=("pr_nm"))
+
+                            pr_sku_lb=Label(frm_pr_ed_cret, text="Sku",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_pr_ed_cret.create_window(0, 0, anchor="center", window=pr_sku_lb,tag=("pr_sku_lb"))
+                            pr_sku = Entry(frm_pr_ed_cret, width=18, font=('Calibri 16'))
+                            win_inv1 = frm_pr_ed_cret.create_window(0, 0, anchor="nw", window=pr_sku, tag=("pr_sku"))
+
+                            pr_prs_lb=Label(frm_pr_ed_cret, text="Price",bg="#213b52", fg="White", anchor="center",font=('Calibri 14 bold'))
+                            win_inv1 = frm_pr_ed_cret.create_window(0, 0, anchor="center", window=pr_prs_lb,tag=("pr_prs_lb"))
+                            pr_prs = Entry(frm_pr_ed_cret, width=18, font=('Calibri 16'))
+                            win_inv1 = frm_pr_ed_cret.create_window(0, 0, anchor="nw", window=pr_prs, tag=("pr_prs"))
+
+                            
+
+                            butn_crt_pr = customtkinter.CTkButton(master=frm_pr_ed_cret,command=main_sign_in,text="Create",bg="#213b52")
+                            win_inv1 = frm_pr_ed_cret.create_window(0, 0, anchor="nw", window=butn_crt_pr, tag=("butn_crt_pr"))
 
                     prc_ma_frm.grid_rowconfigure(0,weight=1)
                     prc_ma_frm.grid_columnconfigure(0,weight=1)
@@ -15638,20 +16980,51 @@ def main_sign_in():
                     frm_prc_ma.bind("<Configure>", res_wid_mit_ma)
                     frm_prc_ma.config(yscrollcommand=mit_prc_scrl.set)
                     frm_prc_ma.grid(row=0,column=0,sticky='nsew')
-
+                    scrollPpr = Scrollbar(prc_ma_frm, orient=VERTICAL)
                     #----------------------------------------------------------------------------------heder 1
                     rth2 = frm_prc_ma.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, fill="#213b52",tags=("bg_polygen_flow"),smooth=True,)
 
-                    lv_name=Label(frm_prc_ma, text="Meterial Master",bg="#213b52", fg="White", anchor="center",font=('Calibri 24 bold'))
-                    win_inv1 = frm_prc_ma.create_window(0, 0, anchor="center", window=lv_name,tag=("prd_hdd"))
-                    frm_prc_ma.create_line(0, 0, 0, 0,fill="gray", tag=("prd_hr") )
+                    lv_name=Label(frm_prc_ma, text="Price List",bg="#213b52", fg="White", anchor="center",font=('Calibri 24 bold'))
+                    win_inv1 = frm_prc_ma.create_window(0, 0, anchor="center", window=lv_name,tag=("pr_hdd"))
+                    frm_prc_ma.create_line(0, 0, 0, 0,fill="gray", tag=("pr_hr") )
 
-                    butn_prd = customtkinter.CTkButton(master=frm_prc_ma,command=main_sign_in,text="View",bg="#213b52")
-                    win_inv1 = frm_prc_ma.create_window(0, 0, anchor="nw", window=butn_prd, tag=("crt_prod"))
-
-                     
-                    #----------------------------------------------------------------------------------heder 2
+                    #----------------------------------------------------------------------------------------
                     rth2 = frm_prc_ma.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, fill="#213b52",tags=("bg_polygen_flow2"),smooth=True,)
+
+                    butn_prd = customtkinter.CTkButton(master=frm_prc_ma,command=add_products,text="Create",bg="#213b52")
+                    win_inv1 = frm_prc_ma.create_window(0, 0, anchor="nw", window=butn_prd, tag=("crt_pr"))
+                    
+                    act_var_pr= StringVar()
+                    cmb_action = ttk.Combobox(frm_prc_ma,textvariable=act_var_pr,width=10,font=('Calibri 16'))
+                    cmb_action['values'] = ('Edit','Delete')
+                    cmb_action.bind('<<ComboboxSelected>>',edit_prc)
+
+                    win_inv1 = frm_prc_ma.create_window(0, 0, anchor="nw", window=cmb_action, tag=("cmb_action_pr"))
+
+                    fgth = ttk.Style()
+                    fgth.theme_use("default")
+                    fgth.configure("Treeview", background="#2f516f", foreground="white",fieldbackground="#2f516f",rowheight=25,font=(None,11),)
+                    fgth.configure("Treeview.Heading",background="#1b3857",activeforeground="black",foreground="white",font=(None,11), justify="center")  
+                 
+                    pr_tree = ttk.Treeview(frm_prc_ma, columns = (1,2,3,4),show = "headings", heigh=23, yscrollcommand=scrollPpr.set)
+                    # pr_tree.pack(side = 'top')
+                    pr_tree.heading(1, text="ID")
+                    pr_tree.heading(2, text="PRODUCT NAME")
+                    pr_tree.heading(3, text="SKU")
+                    pr_tree.heading(4, text="Price")
+                    
+                    
+                    pr_tree.column(1, width = 288)
+                    pr_tree.column(2, width = 390)
+                    pr_tree.column(3, width =288)
+                    pr_tree.column(4, width = 288)
+               
+                    scrollPpr.config(command=pr_tree.yview)
+                    scrollPpr.grid(row=0,column=1,sticky='ns')
+                    
+                    window_label_4 = frm_prc_ma.create_window(0, 0, anchor="nw", window=pr_tree,tags=('tree_pr'))
+                    #----------------------------------------------------------------------------------heder 2
+                    
 
                     def search_dash():
                         if srh_top.get()=="Dashboard":
